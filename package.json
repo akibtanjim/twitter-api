@@ -1,0 +1,57 @@
+{
+  "name": "express-jwt",
+  "version": "1.0.0",
+  "description": "express.js user management and jwt auth project",
+  "main": "app.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test npx jest --config jest.config.js --silent false --runInBand --detectOpenHandles --verbose --forceExit",
+    "start": "node app.js",
+    "dev": "nodemon -L app.js",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo:all",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:seed:undo": "npx sequelize-cli db:seed:undo:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/akibtanjim/express-jwt.git"
+  },
+  "keywords": [
+    "express",
+    "jwt"
+  ],
+  "author": "akibtanjim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/akibtanjim/express-jwt/issues"
+  },
+  "homepage": "https://gitlab.com/akibtanjim/express-jwt#readme",
+  "dependencies": {
+    "@chaudhryjunaid/express-bunyan-logger": "^1.3.5",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "express-rate-limit": "^6.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "keyv": "^4.2.2",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.19.0",
+    "validatorjs": "^3.22.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^28.0.3",
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2",
+    "sequelize-cli": "^6.4.1",
+    "supertest": "^6.2.3"
+  }
+}
