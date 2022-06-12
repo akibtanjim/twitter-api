@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
-const { generateFakeUsers } = require('../../../utils');
-const { generateFakeTweets } = require('../../../utils/faker');
+const {
+  generateFakeUsers,
+  generateFakeTweets,
+  generateFakeTweet,
+} = require('../../../utils');
 
 describe('utils/faker', () => {
   describe('generateFakeUsers', () => {
@@ -13,6 +16,12 @@ describe('utils/faker', () => {
     it('Should generate 5 fake tweets', async () => {
       const fakeTweets = generateFakeTweets(5);
       expect(fakeTweets.length).toBe(5);
+    });
+  });
+  describe('generateFakeTweet', () => {
+    it('Should generate one fake tweet', async () => {
+      const fakeTweet = generateFakeTweet();
+      expect(Object.keys(fakeTweet).length).toBe(5);
     });
   });
 });

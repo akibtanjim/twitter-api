@@ -5,7 +5,11 @@ const { validate, getRules } = require('./validate');
 const { verifyToken, createToken, refreshToken } = require('./jwt');
 const { cacheGet, cacheSet } = require('./cache');
 const { caclulateCacheTTL } = require('./date');
-const { generateFakeUsers } = require('./faker');
+const {
+  generateFakeUsers,
+  generateFakeTweets,
+  generateFakeTweet,
+} = require('./faker');
 const {
   getTweetsVisibility,
   getLimitOffset,
@@ -28,4 +32,6 @@ module.exports = {
   getTweetsVisibility,
   getLimitOffset,
   getPaginatedData,
+  generateFakeTweets,
+  generateFakeTweet,
 };
