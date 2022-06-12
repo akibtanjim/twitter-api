@@ -53,4 +53,11 @@ describe('utils/validation', () => {
       expect(result).toHaveProperty('isPublic');
     });
   });
+  describe('getType', () => {
+    it('Should get validation rules for getOwnTweets request', () => {
+      const result = getRules('getOwnTweets');
+      expect(result).toHaveProperty('type');
+      expect(result).toHaveProperty('page');
+    });
+  });
 });
