@@ -14,7 +14,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      message: {
+      description: {
         type: Sequelize.TEXT,
         allowNull: false,
         defaultValue: '',

@@ -24,7 +24,6 @@ exports.generateFakeUsers = (number) =>
       email: faker.internet.email(),
       phone: faker.phone.phoneNumber('###-###-###'),
       bio: faker.lorem.sentence(),
-      image: faker.internet.avatar(),
       location: faker.address.streetAddress(true),
       website: faker.internet.url(),
       password: bcrypt.hashSync('#User123', 10),
@@ -42,7 +41,7 @@ exports.generateFakeUsers = (number) =>
 
 exports.generateFakeTweets = (number) =>
   Array.from(Array(number), (val, index) => index + 1).map(() => ({
-    message: faker.lorem.sentence(),
+    description: faker.lorem.sentence(),
     isPublic: faker.datatype.boolean(),
     userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
     createdAt: new Date(),

@@ -38,11 +38,6 @@ module.exports = {
         allowNull: true,
         defaultValue: '',
       },
-      image: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        defaultValue: '',
-      },
       location: {
         type: Sequelize.STRING,
         allowNull: true,

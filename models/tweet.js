@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      message: {
+      description: {
         type: DataTypes.TEXT,
         allowNull: false,
         defaultValue: '',

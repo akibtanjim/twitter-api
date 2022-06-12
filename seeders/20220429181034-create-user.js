@@ -20,7 +20,6 @@ module.exports = {
           email: 'admin@xyz.com',
           phone: faker.phone.phoneNumber('###-###-###'),
           bio: faker.lorem.sentence(),
-          image: faker.internet.avatar(),
           location: faker.address.streetAddress(true),
           website: faker.internet.url(),
           password: bcrypt.hashSync('#Admin123', 10),
