@@ -66,4 +66,10 @@ describe('utils/validation', () => {
       expect(result).toHaveProperty('userId');
     });
   });
+  describe('getType', () => {
+    it('Should get validation rules for getAllTweets request', () => {
+      const result = getRules('getAllTweets');
+      expect(result).toHaveProperty('page');
+    });
+  });
 });
