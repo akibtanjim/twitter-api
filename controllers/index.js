@@ -12,7 +12,7 @@ const {
   modifyUser,
 } = require('./user');
 const { health } = require('./health');
-const { saveTweet } = require('./tweets');
+const { saveTweet, getSelfTweets } = require('./tweets');
 
 /**
  * Expose to use in other files
@@ -28,4 +28,5 @@ module.exports = {
   logout,
   tokenRefresh,
   saveTweet,
+  getSelfTweets,
 };

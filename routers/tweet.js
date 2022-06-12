@@ -9,7 +9,7 @@ const express = require('express');
  * Load custom dependencies
  */
 
-const { saveTweet, getSelfTweets } = require('../controllers/tweets');
+const { saveTweet, getSelfTweets } = require('../controllers');
 
 /**
  * Load Required Middlewares
