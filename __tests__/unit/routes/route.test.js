@@ -3,7 +3,10 @@ const request = require('supertest');
 
 const { app } = require('../../../app');
 const { refreshToken } = require('../../../utils');
-const { generateFakeTweet } = require('../../../utils/faker');
+const {
+  generateFakeTweet,
+  generateFakeFollowing,
+} = require('../../../utils/faker');
 
 let accessToken;
 let userId;
@@ -100,21 +103,6 @@ describe('routes', () => {
         .put(`/api/users/${userId}`)
         .set('Authorization', `Bearer ${accessToken}`)
         .send({ name: 'user-updated' })
-        .then((response) =>
-          Promise.all([
-            expect(response.statusCode).toBe(200),
-            expect(response.body).toHaveProperty('status'),
-            expect(response.body).toHaveProperty('data'),
-            expect(response.body).toHaveProperty('message'),
-          ])
-        );
-    });
-  });
-  describe('/api/users/:userId', () => {
-    it('Should DEL /api/users/:userId with success ', async () => {
-      await request(app)
-        .get(`/api/users/${userId}`)
-        .set('Authorization', `Bearer ${accessToken}`)
         .then((response) =>
           Promise.all([
             expect(response.statusCode).toBe(200),
@@ -325,6 +313,43 @@ describe('routes', () => {
             expect(response.body.data).toHaveProperty('totalItems'),
             expect(response.body.data).toHaveProperty('items'),
             expect(response.body.data).toHaveProperty('currentPage'),
+          ])
+        );
+    });
+  });
+  describe('/api/follows', () => {
+    it('Should POST /api/follows with success ', async () => {
+      await request(app)
+        .post('/api/follows')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .send({ ...generateFakeFollowing(), userId })
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('id'),
+            expect(response.body.data).toHaveProperty('followedBy'),
+            expect(response.body.data).toHaveProperty('userId'),
+            expect(response.body.data).toHaveProperty('createdAt'),
+            expect(response.body.data).toHaveProperty('updatedAt'),
+          ])
+        );
+    });
+  });
+
+  describe('/api/users/:userId', () => {
+    it('Should DEL /api/users/:userId with success ', async () => {
+      await request(app)
+        .get(`/api/users/${userId}`)
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
           ])
         );
     });
