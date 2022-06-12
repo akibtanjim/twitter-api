@@ -3,6 +3,7 @@ const request = require('supertest');
 
 const { app } = require('../../../app');
 const { refreshToken } = require('../../../utils');
+const { generateFakeTweet } = require('../../../utils/faker');
 
 let accessToken;
 let userId;
@@ -184,6 +185,28 @@ describe('routes', () => {
             expect(response.body.data).toHaveProperty('name'),
             expect(response.body.data).toHaveProperty('author'),
             expect(response.body.data).toHaveProperty('version'),
+          ])
+        );
+    });
+  });
+  describe('/api/tweets', () => {
+    it('Should POST /api/tweets with success ', async () => {
+      await request(app)
+        .post('/api/tweets')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .send(generateFakeTweet())
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('id'),
+            expect(response.body.data).toHaveProperty('description'),
+            expect(response.body.data).toHaveProperty('isPublic'),
+            expect(response.body.data).toHaveProperty('userId'),
+            expect(response.body.data).toHaveProperty('createdAt'),
+            expect(response.body.data).toHaveProperty('updatedAt'),
           ])
         );
     });
