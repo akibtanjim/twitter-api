@@ -32,7 +32,6 @@ const createTweet = async ({ description, isPublic = true, userId }) =>
  * @returns array
  */
 const getOwnTweets = async ({ userId, type = 'all', page = undefined }) => {
-  console.log(page);
   if (page) {
     const { limit, offset } = getLimitOffset(page);
     return tweetModel
