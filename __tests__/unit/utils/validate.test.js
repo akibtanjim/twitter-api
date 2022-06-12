@@ -60,4 +60,10 @@ describe('utils/validation', () => {
       expect(result).toHaveProperty('page');
     });
   });
+  describe('getType', () => {
+    it('Should get validation rules for createFollowing request', () => {
+      const result = getRules('createFollowing');
+      expect(result).toHaveProperty('userId');
+    });
+  });
 });

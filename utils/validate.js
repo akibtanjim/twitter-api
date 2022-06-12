@@ -54,6 +54,9 @@ const validationRules = {
     type: 'required_if:type,|in:all,public,private',
     page: 'required_if:page,|integer',
   },
+  createFollowing: {
+    userId: 'required|integer',
+  },
 };
 
 /**
@@ -75,6 +78,8 @@ const getRules = (type) => {
       return validationRules.createTweet;
     case 'getOwnTweets':
       return validationRules.getOwnTweets;
+    case 'createFollowing':
+      return validationRules.createFollowing;
     default:
       return {};
   }
