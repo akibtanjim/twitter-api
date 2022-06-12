@@ -13,13 +13,15 @@ const { validate } = require('../utils');
  * @return {*} next() / throws error
  */
 
-const validateRequest = (type) => async (req, res, next) => {
-  try {
-    validate(type, req.body);
-    await next();
-  } catch (error) {
-    errorResponseHandler(error, req, res);
-  }
-};
+const validateRequest =
+  (type, valdationSource = 'body') =>
+  async (req, res, next) => {
+    try {
+      validate(type, valdationSource === 'query' ? req.query : req.body);
+      await next();
+    } catch (error) {
+      errorResponseHandler(error, req, res);
+    }
+  };
 
 module.exports = validateRequest;

@@ -9,7 +9,7 @@ const express = require('express');
  * Load custom dependencies
  */
 
-const { saveTweet } = require('../controllers/tweets');
+const { saveTweet, getSelfTweets } = require('../controllers/tweets');
 
 /**
  * Load Required Middlewares
@@ -27,5 +27,10 @@ const router = express.Router();
  */
 
 router.post('/tweets', [authGaurd, validateRequest('createTweet')], saveTweet);
+router.get(
+  '/tweets/me',
+  [authGaurd, validateRequest('getOwnTweets', 'query')],
+  getSelfTweets
+);
 
 module.exports = router;

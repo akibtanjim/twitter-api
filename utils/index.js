@@ -6,6 +6,11 @@ const { verifyToken, createToken, refreshToken } = require('./jwt');
 const { cacheGet, cacheSet } = require('./cache');
 const { caclulateCacheTTL } = require('./date');
 const { generateFakeUsers } = require('./faker');
+const {
+  getTweetsVisibility,
+  getLimitOffset,
+  getPaginatedData,
+} = require('./common');
 
 /**
  * Expose to use in other files
@@ -20,4 +25,7 @@ module.exports = {
   cacheSet,
   caclulateCacheTTL,
   generateFakeUsers,
+  getTweetsVisibility,
+  getLimitOffset,
+  getPaginatedData,
 };

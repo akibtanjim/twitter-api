@@ -50,6 +50,10 @@ const validationRules = {
   refreshToken: {
     refreshToken: 'required|string',
   },
+  getOwnTweets: {
+    type: 'required_if:type,|in:all,public,private',
+    page: 'required_if:page,|integer',
+  },
 };
 
 /**
@@ -69,6 +73,8 @@ const getRules = (type) => {
       return validationRules.refreshToken;
     case 'createTweet':
       return validationRules.createTweet;
+    case 'getOwnTweets':
+      return validationRules.getOwnTweets;
     default:
       return {};
   }
