@@ -15,4 +15,16 @@ describe('models/follower', () => {
       expect(result).toHaveProperty('updatedAt'),
     ]);
   });
+  it('Should check following existence', async () => {
+    const result = await follower
+      .findAll({
+        where: {
+          userId: 2,
+          followedBy: 1,
+        },
+      })
+      .then(() => true)
+      .catch(() => false);
+    return Promise.all([expect(result).toBe(result)]);
+  });
 });

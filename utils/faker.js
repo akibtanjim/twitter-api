@@ -82,7 +82,7 @@ exports.generateFakeFollowers = (number) =>
  */
 exports.generateFakeFollowing = () => ({
   userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
-  followedBy: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 2,
+  followedBy: 1,
   createdAt: new Date(),
   updatedAt: new Date(),
 });
