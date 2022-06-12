@@ -31,9 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: '',
-        validate: {
-          notEmpty: true,
-        },
+        notEmpty: true,
       },
       email: {
         type: DataTypes.STRING,
@@ -69,9 +67,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
         defaultValue: '',
-        validate: {
-          isUrl: true,
-        },
       },
       password: {
         type: DataTypes.STRING,
@@ -93,6 +88,9 @@ module.exports = (sequelize, DataTypes) => {
         beforeCreate: async (user) => {
           const hashedPassword = await bcrypt.hash(user.password, 10);
           user.password = hashedPassword;
+          user.userName = `@${String(
+            user.name.replace(/[^\w\s]/gi, '_').replace(/\s/g, '')
+          ).toLowerCase()}`;
         },
       },
       sequelize,

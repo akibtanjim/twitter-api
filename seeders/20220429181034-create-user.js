@@ -1,11 +1,13 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
+const { faker } = require('@faker-js/faker');
+const { generateFakeUsers } = require('../utils');
 
 module.exports = {
   async up(queryInterface) {
     /**
-     * Create Admin User
+     * Create Users
      *
      */
     return queryInterface.bulkInsert(
@@ -14,12 +16,19 @@ module.exports = {
         {
           id: 1,
           name: 'admin',
+          userName: '@adminuser',
           email: 'admin@xyz.com',
+          phone: faker.phone.phoneNumber('###-###-###'),
+          bio: faker.lorem.sentence(),
+          image: faker.internet.avatar(),
+          location: faker.address.streetAddress(true),
+          website: faker.internet.url(),
           password: bcrypt.hashSync('#Admin123', 10),
           role: 'admin',
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        ...generateFakeUsers(49),
       ],
       {
         ignoreDuplicates: true,
