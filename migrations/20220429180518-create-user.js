@@ -2,6 +2,7 @@
 
 /**
  *  Create/Delete Users Table
+ *  dob
  */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -15,17 +16,47 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: '-',
+        defaultValue: '',
+      },
+      userName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        defaultValue: '',
       },
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: '-',
+        defaultValue: '',
+      },
+      phone: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      bio: {
+        type: Sequelize.TEXT,
+        allowNull: true,
+        defaultValue: '',
+      },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      location: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      website: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: '',
       },
       password: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: '-',
+        defaultValue: '',
       },
       role: {
         type: Sequelize.STRING,

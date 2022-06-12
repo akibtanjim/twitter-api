@@ -22,7 +22,15 @@ module.exports = (sequelize, DataTypes) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: '-',
+        defaultValue: '',
+        validate: {
+          notEmpty: true,
+        },
+      },
+      userName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: '',
         validate: {
           notEmpty: true,
         },
@@ -31,10 +39,38 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-        defaultValue: '-',
+        defaultValue: '',
         validate: {
           isEmail: true,
           notEmpty: true,
+        },
+      },
+      phone: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      bio: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+        defaultValue: '',
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      location: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
+      },
+      website: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        defaultValue: '',
+        validate: {
+          isUrl: true,
         },
       },
       password: {
@@ -45,7 +81,7 @@ module.exports = (sequelize, DataTypes) => {
       role: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: '-',
+        defaultValue: '',
         notEmpty: true,
         validate: {
           isIn: [['admin', 'user']],
