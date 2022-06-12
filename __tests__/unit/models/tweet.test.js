@@ -3,7 +3,7 @@
 // Load Cutom Dependencies
 const { Op } = require('sequelize');
 const { tweet } = require('../../../models');
-const { generateFakeTweet } = require('../../../utils/faker');
+const { generateFakeTweet } = require('../../../utils');
 
 describe('models/tweet', () => {
   it('Should create new tweet', async () => {

@@ -2,6 +2,7 @@
  * Load Dependencies
  */
 const { login, getUserByEmail, logout, refreshUserToken } = require('./auth');
+const { createFollowing } = require('./follower');
 const { createTweet, getOwnTweets } = require('./tweet');
 const {
   getAllUsers,
@@ -28,4 +29,5 @@ module.exports = {
   refreshUserToken,
   createTweet,
   getOwnTweets,
+  createFollowing,
 };

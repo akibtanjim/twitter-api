@@ -16,14 +16,9 @@ const {
  * @returns object (Tweet)
  */
 const createTweet = async ({ description, isPublic = true, userId }) =>
-  tweetModel.create({ description, isPublic, userId }).then((response) => {
-    if (response) {
-      return {
-        ...response.dataValues,
-      };
-    }
-    return response;
-  });
+  tweetModel
+    .create({ description, isPublic, userId })
+    .then((response) => response);
 
 /**
  * Get Own Tweets By Type (All/Public/Private)
