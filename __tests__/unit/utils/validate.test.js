@@ -67,8 +67,8 @@ describe('utils/validation', () => {
     });
   });
   describe('getType', () => {
-    it('Should get validation rules for getAllTweets request', () => {
-      const result = getRules('getAllTweets');
+    it('Should get validation rules for getNewsFeedTweets request', () => {
+      const result = getRules('getNewsFeedTweets');
       expect(result).toHaveProperty('page');
     });
   });

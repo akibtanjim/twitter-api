@@ -57,7 +57,7 @@ const validationRules = {
   createFollowing: {
     userId: 'required|integer',
   },
-  getAllTweets: {
+  getNewsFeedTweets: {
     page: 'required_if:page,|integer',
   },
 };
@@ -83,8 +83,8 @@ const getRules = (type) => {
       return validationRules.getOwnTweets;
     case 'createFollowing':
       return validationRules.createFollowing;
-    case 'getAllTweets':
-      return validationRules.getAllTweets;
+    case 'getNewsFeedTweets':
+      return validationRules.getNewsFeedTweets;
     default:
       return {};
   }
