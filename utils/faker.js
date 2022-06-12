@@ -48,10 +48,41 @@ exports.generateFakeTweets = (number) =>
     updatedAt: new Date(),
   }));
 
+/**
+ * Generate fake tweet and return it
+ * @param {*} number
+ * @returns object
+ */
 exports.generateFakeTweet = () => ({
   description: faker.lorem.sentence(),
   isPublic: faker.datatype.boolean(),
   userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
+
+/**
+ * Generate N number of fake followers and return them
+ * @param {*} number
+ * @returns array
+ */
+
+exports.generateFakeFollowers = (number) =>
+  Array.from(Array(number), (val, index) => index + 1).map(() => ({
+    userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
+    followedBy: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 2,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }));
+
+/**
+ * Generate fake follow and return it
+ * @param {*} number
+ * @returns object
+ */
+exports.generateFakeFollowing = () => ({
+  userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
+  followedBy: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 2,
   createdAt: new Date(),
   updatedAt: new Date(),
 });

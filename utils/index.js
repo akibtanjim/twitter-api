@@ -9,6 +9,8 @@ const {
   generateFakeUsers,
   generateFakeTweets,
   generateFakeTweet,
+  generateFakeFollowers,
+  generateFakeFollowing,
 } = require('./faker');
 const {
   getTweetsVisibility,
@@ -34,4 +36,6 @@ module.exports = {
   getPaginatedData,
   generateFakeTweets,
   generateFakeTweet,
+  generateFakeFollowers,
+  generateFakeFollowing,
 };

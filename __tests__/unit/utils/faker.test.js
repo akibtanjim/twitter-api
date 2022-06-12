@@ -3,6 +3,8 @@ const {
   generateFakeUsers,
   generateFakeTweets,
   generateFakeTweet,
+  generateFakeFollowers,
+  generateFakeFollowing,
 } = require('../../../utils');
 
 describe('utils/faker', () => {
@@ -22,6 +24,18 @@ describe('utils/faker', () => {
     it('Should generate one fake tweet', async () => {
       const fakeTweet = generateFakeTweet();
       expect(Object.keys(fakeTweet).length).toBe(5);
+    });
+  });
+  describe('generateFakeFollowers', () => {
+    it('Should generate 5 fake followers', async () => {
+      const fakeFollowers = generateFakeFollowers(5);
+      expect(fakeFollowers.length).toBe(5);
+    });
+  });
+  describe('generateFakeFollowing', () => {
+    it('Should generate one fake following', async () => {
+      const fakeFollowing = generateFakeFollowing();
+      expect(Object.keys(fakeFollowing).length).toBe(4);
     });
   });
 });
