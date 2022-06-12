@@ -12,6 +12,7 @@ const express = require('express');
 const authRoutes = require('./auth');
 const userRoutes = require('./user');
 const healthRoutes = require('./health');
+const tweetRoutes = require('./tweet');
 
 /**
  * Create Router
@@ -23,5 +24,6 @@ const routers = express.Router();
 routers.use('/', authRoutes);
 routers.use('/', userRoutes);
 routers.use('/', healthRoutes);
+routers.use('/', tweetRoutes);
 
 module.exports = routers;

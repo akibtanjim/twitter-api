@@ -27,7 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       description: {
         type: DataTypes.TEXT,
         allowNull: false,
-        defaultValue: '',
+        validate: {
+          notEmpty: true,
+        },
       },
       isPublic: {
         type: DataTypes.INTEGER,

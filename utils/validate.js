@@ -43,6 +43,10 @@ const validationRules = {
     name: 'required_if:name,|isAlphabetsDotUnderscoreHyphen|required_without_all:email,password,role',
     role: 'required_if:role,|in:admin,user|required_without_all:email,password,name',
   },
+  createTweet: {
+    description: 'required',
+    isPublic: 'required_if:isPublic,|boolean',
+  },
   refreshToken: {
     refreshToken: 'required|string',
   },
@@ -63,6 +67,8 @@ const getRules = (type) => {
       return validationRules.updateUser;
     case 'refreshToken':
       return validationRules.refreshToken;
+    case 'createTweet':
+      return validationRules.createTweet;
     default:
       return {};
   }

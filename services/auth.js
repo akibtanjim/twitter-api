@@ -64,9 +64,9 @@ const login = async ({ email, password }) => {
     });
   }
 
-  const token = createToken({ id, name, role, email });
+  const token = createToken({ id, name, role });
   const { exp: expiresIn } = verifyToken(token);
-  const refToken = refreshToken({ id, name, role, email, refresh: true });
+  const refToken = refreshToken({ id, name, role, refresh: true });
   const { exp: refExpiresIn } = verifyToken(refToken);
   return {
     accessToken: {
