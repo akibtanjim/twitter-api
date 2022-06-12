@@ -41,7 +41,7 @@ const getOwnTweets = async ({ userId, type = 'all', page = undefined }) => {
           isPublic: getTweetsVisibility(type),
         },
         attributes: ['id', 'description', 'isPublic', 'createdAt', 'updatedAt'],
-        order: [['id', 'DESC']],
+        order: [['createdAt', 'DESC']],
         limit,
         offset,
       })
@@ -57,7 +57,7 @@ const getOwnTweets = async ({ userId, type = 'all', page = undefined }) => {
         isPublic: getTweetsVisibility(type),
       },
       attributes: ['id', 'description', 'isPublic', 'createdAt', 'updatedAt'],
-      order: [['id', 'DESC']],
+      order: [['createdAt', 'DESC']],
     })
     .then((response) => response);
 };
