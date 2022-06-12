@@ -47,3 +47,11 @@ exports.generateFakeTweets = (number) =>
     createdAt: new Date(),
     updatedAt: new Date(),
   }));
+
+exports.generateFakeTweet = () => ({
+  description: faker.lorem.sentence(),
+  isPublic: faker.datatype.boolean(),
+  userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
+  createdAt: new Date(),
+  updatedAt: new Date(),
+});
