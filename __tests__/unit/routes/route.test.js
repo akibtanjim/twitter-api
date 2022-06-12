@@ -211,4 +211,122 @@ describe('routes', () => {
         );
     });
   });
+  describe('/api/tweets/me', () => {
+    it('Should POST /api/tweets/me with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=all with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=all')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=public with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=public')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=private with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=private')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?page=1 with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?page=1')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('totalItems'),
+            expect(response.body.data).toHaveProperty('items'),
+            expect(response.body.data).toHaveProperty('currentPage'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=all&page=1 with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=all&page=1')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('totalItems'),
+            expect(response.body.data).toHaveProperty('items'),
+            expect(response.body.data).toHaveProperty('currentPage'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=public&page=1 with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=public&page=1')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('totalItems'),
+            expect(response.body.data).toHaveProperty('items'),
+            expect(response.body.data).toHaveProperty('currentPage'),
+          ])
+        );
+    });
+    it('Should POST /api/tweets/me?type=private&page=1 with success ', async () => {
+      await request(app)
+        .get('/api/tweets/me?type=private&page=1')
+        .set('Authorization', `Bearer ${accessToken}`)
+        .then((response) =>
+          Promise.all([
+            expect(response.statusCode).toBe(200),
+            expect(response.body).toHaveProperty('status'),
+            expect(response.body).toHaveProperty('data'),
+            expect(response.body).toHaveProperty('message'),
+            expect(response.body.data).toHaveProperty('totalItems'),
+            expect(response.body.data).toHaveProperty('items'),
+            expect(response.body.data).toHaveProperty('currentPage'),
+          ])
+        );
+    });
+  });
 });
