@@ -46,4 +46,11 @@ describe('utils/validation', () => {
       expect(result).toHaveProperty('refreshToken');
     });
   });
+  describe('getType', () => {
+    it('Should get validation rules for createTweet request', () => {
+      const result = getRules('createTweet');
+      expect(result).toHaveProperty('description');
+      expect(result).toHaveProperty('isPublic');
+    });
+  });
 });
