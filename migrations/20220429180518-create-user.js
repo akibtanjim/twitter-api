@@ -2,7 +2,7 @@
 
 /**
  *  Create/Delete Users Table
- *  dob
+ *
  */
 module.exports = {
   async up(queryInterface, Sequelize) {

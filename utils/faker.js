@@ -33,3 +33,18 @@ exports.generateFakeUsers = (number) =>
       updatedAt: new Date(),
     };
   });
+
+/**
+ * Generate N number of fake tweets and return them
+ * @param {*} number
+ * @returns array
+ */
+
+exports.generateFakeTweets = (number) =>
+  Array.from(Array(number), (val, index) => index + 1).map(() => ({
+    message: faker.lorem.sentence(),
+    isPublic: faker.datatype.boolean(),
+    userId: Math.floor(Math.random() * (Math.floor(50) - 1 + 1)) + 1,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  }));
