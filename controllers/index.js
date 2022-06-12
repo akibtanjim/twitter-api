@@ -12,6 +12,7 @@ const {
   modifyUser,
 } = require('./user');
 const { health } = require('./health');
+const { saveTweet } = require('./tweets');
 
 /**
  * Expose to use in other files
@@ -26,4 +27,5 @@ module.exports = {
   modifyUser,
   logout,
   tokenRefresh,
+  saveTweet,
 };
