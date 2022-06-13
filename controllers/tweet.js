@@ -4,7 +4,7 @@
  * Load All Dependencies
  */
 const { errorResponseHandler, successResponseHandler } = require('../helpers');
-const { createTweet, getOwnTweets } = require('../services');
+const { createTweet, getOwnTweets, getNewsFeedTweets } = require('../services');
 
 /**
  * Save User Tweet
@@ -38,6 +38,27 @@ exports.getSelfTweets = async (req, res) => {
       res,
       tweets,
       'Successfully fetched all tweets!'
+    );
+  } catch (error) {
+    return errorResponseHandler(error, req, res);
+  }
+};
+
+/**
+ * Get User's news feed tweets
+ * @param {*} req
+ * @param {*} res
+ * @returns array(tweets)
+ */
+exports.getTweetsForNewsFeed = async (req, res) => {
+  try {
+    const { id: userId } = req.user;
+    const { page = undefined } = req.query;
+    const tweets = await getNewsFeedTweets({ userId, page });
+    return successResponseHandler(
+      res,
+      tweets,
+      'Successfully fetched all news feed tweets!'
     );
   } catch (error) {
     return errorResponseHandler(error, req, res);

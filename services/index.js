@@ -3,7 +3,7 @@
  */
 const { login, getUserByEmail, logout, refreshUserToken } = require('./auth');
 const { createFollowing, checkFollowingExists } = require('./follower');
-const { createTweet, getOwnTweets } = require('./tweet');
+const { createTweet, getOwnTweets, getNewsFeedTweets } = require('./tweet');
 const {
   getAllUsers,
   getUserById,
@@ -31,4 +31,5 @@ module.exports = {
   getOwnTweets,
   createFollowing,
   checkFollowingExists,
+  getNewsFeedTweets,
 };

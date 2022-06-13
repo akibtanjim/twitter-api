@@ -12,7 +12,7 @@ const {
   modifyUser,
 } = require('./user');
 const { health } = require('./health');
-const { saveTweet, getSelfTweets } = require('./tweet');
+const { saveTweet, getSelfTweets, getTweetsForNewsFeed } = require('./tweet');
 const { follow } = require('./follower');
 
 /**
@@ -31,4 +31,5 @@ module.exports = {
   saveTweet,
   getSelfTweets,
   follow,
+  getTweetsForNewsFeed,
 };
