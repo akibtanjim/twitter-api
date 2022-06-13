@@ -55,9 +55,24 @@ API_MAX_REQUEST_LIMIT=60
 - For manual install please follow the below steps
 
   ```
-      npm i --include=dev
+      npm i
       npm run db:migrate
       npm run db:seed
       npm run test
       npm start
   ```
+
+## Defaults:
+
+- Admin default password is `#Admin123`
+- User default password is `#User123`
+
+## API Docs (Postman):
+
+Please open browser and go to below url to see the api docs
+
+```
+https://documenter.getpostman.com/view/9001196/Uz5NjtXU
+```
+
+### N.B: To import collection to postman click `Run in Postman` button (on top right in the upper section) of the above url or import postman collections to postman from `docs` folder
