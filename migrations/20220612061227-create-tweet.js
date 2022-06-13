@@ -27,6 +27,8 @@ module.exports = {
           },
           key: 'id',
         },
+        onDelete: 'cascade',
+        onUpdate: 'cascade',
       },
       isPublic: {
         type: Sequelize.BOOLEAN,

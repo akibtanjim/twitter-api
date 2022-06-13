@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/akibtanjim/express-jwt.git"
+    "url": "git+https://github.com/akibtanjim/twitter-api.git"
   },
   "keywords": [
     "express",
@@ -23,9 +23,9 @@
   "author": "akibtanjim",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/akibtanjim/express-jwt/issues"
+    "url": "https://github.com/akibtanjim/twitter-api/issues"
   },
-  "homepage": "https://gitlab.com/akibtanjim/express-jwt#readme",
+  "homepage": "https://github.com/akibtanjim/twitter-api#readme",
   "dependencies": {
     "@chaudhryjunaid/express-bunyan-logger": "^1.3.5",
     "bcrypt": "^5.0.1",
