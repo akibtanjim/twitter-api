@@ -3,7 +3,11 @@
 'use strict';
 
 // Load Custom Dependencies
-const { createTweet, getOwnTweets } = require('../../../services');
+const {
+  createTweet,
+  getOwnTweets,
+  getNewsFeedTweets,
+} = require('../../../services');
 const { generateFakeTweet } = require('../../../utils/faker');
 
 describe('services/tweet', () => {
@@ -68,6 +72,26 @@ describe('services/tweet', () => {
           expect(result).toHaveProperty('currentPage'),
         ]);
       });
+    });
+  });
+  describe('getTweetsForNewsFeed', () => {
+    it('Should get all news feed tweets for a user without pagination info', async () => {
+      const result = await getNewsFeedTweets({
+        userId: 1,
+      });
+      return Promise.all([expect(result).toBeInstanceOf(Object)]);
+    });
+    it('Should get news feed tweets (10) for a user with pagination info', async () => {
+      const result = await getNewsFeedTweets({
+        userId: 1,
+        page: 1,
+      });
+      return Promise.all([
+        expect(result).toHaveProperty('totalItems'),
+        expect(result).toHaveProperty('items'),
+        expect(result).toHaveProperty('totalPages'),
+        expect(result).toHaveProperty('currentPage'),
+      ]);
     });
   });
 });
